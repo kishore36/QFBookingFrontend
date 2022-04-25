@@ -1,0 +1,85 @@
+.book-now{
+    h2{
+        font-size: 60px;
+        font-weight: 700;
+    }
+    h3{
+        color: #111;
+        font-size: 20px;
+        font-weight: 600;
+        margin-bottom: 30px;
+        margin-top: 30px;
+    }
+}
+.user{
+    input{
+        border: none;
+        outline: 0;
+        width: 100%;
+        background-color: #f3f3f3;
+        height: 67px;
+        border-radius: 33.5px;
+        padding: 30px;
+        color: #717171;
+        font-size: 16px;
+        font-weight: 600;
+    }
+}
+.information{
+    margin: auto;
+}
+.select{
+    input[type="radio"] {
+        display: none;
+      }
+      label input[type="radio"] ~ span {
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        vertical-align: top;
+        border: 2px solid #999;
+        box-sizing: content-box;
+        -moz-box-sizing: content-box;
+        margin-top: 3px;
+      }
+      label input[type="radio"] ~ span {
+        border-radius: 12px;
+      }
+      label input[type="radio"]:checked ~ span {
+        background-color: orange;
+      }
+      label:hover input[type="radio"] ~ span {
+        border-color: #666;
+      }
+      label{
+        display: flex;
+        cursor: pointer;
+        line-height: 30px;
+        color: #717171;
+        font-size: 16px;
+        font-weight: 600;
+        align-items: center;
+      }
+      span{
+        margin-right: 12px;
+      }
+}
+.book{
+    button{
+        cursor: pointer;
+        border: none;
+        outline: 0;
+        width: 100%;
+        // background-color: #ffc000;
+        height: 67px;
+        border-radius: 33.5px;
+        text-align: center;
+        font-size: 18px;
+        font-weight: 600;
+        color: #111;
+        transition: all .4s ease;
+        max-width: 250px;
+        margin-top: 50px;
+        margin-bottom:10px;
+    }
+}

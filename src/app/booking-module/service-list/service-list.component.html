@@ -1,0 +1,300 @@
+<div class="col-md-12 col-12 col-sm-12 p-3">
+    <!-- <div class="tabs">
+        <ul>
+            <li id="select" (click)="tabsChange('select')">select</li>
+            <li id="check" (click)="tabsChange('check')">checck</li>
+            <li id="view" (click)="tabsChange('view')">view</li>
+        </ul>
+        <div class="col-md-12 p-0">
+            <div class="col-md-12 p-0">
+                <div class="card" style="width: 18rem;" *ngIf = "id==='select'">
+                    <img class="card-img-top" src="..." alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a class="btn btn-primary">Book Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 p-0">
+                <div class="card" style="width: 18rem;" *ngIf = "id==='check'">
+                    <img class="card-img-top" src="..." alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 p-0">
+                <div class="card" style="width: 18rem;" *ngIf = "id==='view'">
+                    <img class="card-img-top" src="..." alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <!---  nav-starts------------------->
+    <ul class="nav nav-pills justify-content-center">
+        <li class="nav-item px-2">
+          <a class="nav-link bg-c" id="select" (click)="tabsChange('select')" [class.color]="id==='select'">Active</a>
+        </li>
+        <li class="nav-item px-2">
+          <a class="nav-link bg-c" id="check" (click)="tabsChange('check')" [class.color]="id==='check'">Upcoming</a>
+        </li>
+        <!-- <li class="nav-item px-2">
+          <a class="nav-link bg-c" id="view" (click)="tabsChange('view')" [class.color]="id==='view'">Link</a>
+        </li> -->
+    </ul>
+        <div class="col-md-12 p-0">
+            <div class="col-md-12 p-0">
+                <div class="row m-0 mt-4">
+                 <div class="col-md-4 p-0 pe-2">
+                    <div class="card" *ngIf ="id==='select'">
+                        <img class="card-img-top" src="../../../assets/painting.jpg"alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Painting</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a class="btn bg-c book" [routerLink]="['/booking/sub-service']">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 p-0 pe-2">
+                    <div class="card" *ngIf ="id==='select'">
+                        <img class="card-img-top" src="../../../assets/plumbing.jpg"alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Plumbing</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a class="btn bg-c book" [routerLink]="['/booking/sub-service']">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 p-0 pe-2">
+                    <div class="card" *ngIf ="id==='select'">
+                        <img class="card-img-top" src="../../../assets/electricity.jpg"alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Electricity</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a class="btn bg-c book" [routerLink]="['/booking/sub-service']">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-12 col-sm-12 p-0 mt-2">
+            <div class="row m-0">
+                <div class="col-md-4 p-0 pe-2">
+                    <div class="card" *ngIf ="id==='select'">
+                        <img class="card-img-top" src="../../../assets/roofing.jpg"alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">roofing</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a class="btn bg-c book" [routerLink]="['/booking/sub-service']">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 p-0 pe-2">
+                    <div class="card" *ngIf ="id==='select'">
+                        <img class="card-img-top" src="../../../assets/renovation.jpg"alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">renovation</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a class="btn bg-c book" [routerLink]="['/booking/sub-service']">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 p-0 pe-2">
+                    <div class="card" *ngIf ="id==='select'">
+                        <img class="card-img-top" src="../../../assets/cleaning.jpeg"alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">cleaning</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a class="btn bg-c book" [routerLink]="['/booking/sub-service']">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 p-0">
+            <div class="row m-0 m-0">
+                <div class="col-md-4 p-0 pe-2">
+                    <div class="card" *ngIf ="id==='check'">
+                        <img class="card-img-top" src="../../../assets/p-1.jpg"alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">title Name</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a class="btn bg-c book" [routerLink]="['/booking/sub-service']">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 p-0 pe-2">
+                    <div class="card" *ngIf ="id==='check'">
+                        <img class="card-img-top" src="../../../assets/p-3.jpg"alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">title Name</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a class="btn bg-c book" [routerLink]="['/booking/sub-service']">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 p-0 pe-2">
+                    <div class="card" *ngIf ="id==='check'">
+                        <img class="card-img-top" src="../../../assets/p-2.png"alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">title Name</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a class="btn bg-c book" [routerLink]="['/booking/sub-service']">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 p-0">
+            <div class="row m-0 m-0">
+                <div class="col-md-4 p-0 pe-2">
+                    <div class="card" *ngIf ="id==='view'">
+                        <img class="card-img-top" src="../../../assets/p-2.png"alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">title Name</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a class="btn bg-c book" [routerLink]="['/booking/sub-service']">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 p-0 pe-2">
+                    <div class="card" *ngIf ="id==='view'">
+                        <img class="card-img-top" src="../../../assets/p-1.jpg"alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">title Name</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a class="btn bg-c book" [routerLink]="['/booking/sub-service']">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 p-0 pe-2">
+                    <div class="card" *ngIf ="id==='view'">
+                        <img class="card-img-top" src="../../../assets/p-3.jpg "alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">title Name</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a class="btn bg-c book" [routerLink]="['/booking/sub-service']">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12 p-0">
+        <div class="row m-0 mt-4">
+            <div class="col-md-4 p-0 pe-2">
+                <div class="card" *ngIf ="id==='view'">
+                    <img class="card-img-top" src="../../../assets/painting.jpg"alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">title Name</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a class="btn bg-c book" [routerLink]="['/booking/sub-service']">Book Now</a>
+                    </div>
+                </div>
+                <!-- <div  class="type">
+                    <div>
+                        <img class="card-img-top" src="../../../assets/painting.jpg"alt="Card image cap">
+                    </div> 
+                    <div class="col-md-12 p-0">
+                        <h4>Title Name</h4>
+                        <div class="col-md-12 p-0">
+                            <div class="row">
+                                <div class="col-md-8 p-0">
+                                    <span>Base Rate:</span>
+                                </div>
+                                <div class="col-md-4 p-0">
+                                    <span>$4.30</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 p-0">
+                            <div class="row">
+                                <div class="col-md-8 p-0">
+                                    <span>Per Mile/KM:</span>
+                                </div>
+                                <div class="col-md-4 p-0">
+                                    <span>$2.00</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 p-0">
+                            <div class="row">
+                                <div class="col-md-8 p-0">
+                                    <span>Passengers:</span>
+                                </div>
+                                <div class="col-md-4 p-0">
+                                    <span>4</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <button type="button">Book Taxi</button>
+                    </div>
+                </div> -->
+            </div>
+            <div class="col-md-4 p-0 pe-2">
+                <div class="card" *ngIf ="id==='view'">
+                    <img class="card-img-top" src="../../../assets/plumbing.jpg"alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">title Name</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a class="btn bg-c book" [routerLink]="['/booking/sub-service']" >Book Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 p-0 pe-2">
+                <div class="card" *ngIf ="id==='view'">
+                    <img class="card-img-top" src="../../../assets/electricity.jpg"alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">title Name</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a class="btn bg-c book" [routerLink]="['/booking/sub-service']">Book Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="col-12 col-md-12 col-sm-12 p-0 mt-2">
+        <div class="row m-0">
+            <div class="col-md-4 p-0 pe-2">
+                <div class="card" *ngIf ="id==='check'">
+                    <img class="card-img-top" src="../../../assets/roofing.jpg"alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">title Name</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a class="btn bg-c book" [routerLink]="['/booking/sub-service']">Book Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 p-0 pe-2">
+                <div class="card" *ngIf ="id==='check'">
+                    <img class="card-img-top" src="../../../assets/renovation.jpg"alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">title Name</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a class="btn bg-c book" [routerLink]="['/booking/sub-service']">Book Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 p-0 pe-2">
+                <div class="card" *ngIf ="id==='check'">
+                    <img class="card-img-top" src="../../../assets/cleaning.jpeg"alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">title Name</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a class="btn bg-c book" [routerLink]="['/booking/sub-service']">Book Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+</div>

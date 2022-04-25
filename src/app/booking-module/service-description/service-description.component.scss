@@ -1,0 +1,54 @@
+p{
+    font-size: 16px;
+    color: #717171;
+}
+.fw-7{
+    font-weight: 700;
+}
+.image{
+    img{
+        border-radius: 10px;
+        height: 500px;
+    }
+}
+
+.table-color{
+    background-color: #F1592A;
+}
+
+.description{
+    width: 85%;
+    margin: auto;
+    height: 100vh;
+    .model{
+        border-top: 2px solid gray;
+        padding-top: 20px;
+        span{
+            color: #717171;
+            font-weight: 400;
+        }
+        h4{
+            font-weight: 500;
+        }
+    }
+    .service-name{
+        h2{
+            font-size: 45px;
+            font-weight: 600;
+        }
+        .order{
+            // background-color: #18592D;
+            // color: #fff;
+            border: none;
+            width: 180px;
+            height: 45px;
+            border-radius: 20px;
+            margin: 45px;
+            // &:hover{
+            //     background-image: linear-gradient(90.19deg, #F1592A 6.62%, #18592D 99.86%);
+            //     transform: translateY(-3px);
+            //     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            // }
+        }
+    }
+}
