@@ -13,7 +13,7 @@ const bookRoutes:Routes=[
   {path:"service-list",component:ServiceListComponent},
   {path:"service-description",component:ServiceDescriptionComponent},
   {path:"book-now",component:BooknowComponent},
-  {path:"sub-service",component:SubServiceListComponent},
+  {path:"sub-service/:id",component:SubServiceListComponent},
   {path:"cart",component:CartComponent}
 ]
 
@@ -25,7 +25,7 @@ const bookRoutes:Routes=[
     SubServiceListComponent,
     CartComponent
   ],
-  imports: [
+  imports: [ 
     CommonModule,
     RouterModule.forChild(bookRoutes)
   ]

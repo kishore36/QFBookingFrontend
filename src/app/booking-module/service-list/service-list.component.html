@@ -10,8 +10,8 @@
                 <div class="card" style="width: 18rem;" *ngIf = "id==='select'">
                     <img class="card-img-top" src="..." alt="Card image cap">
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <h4 class="card-title">Card title</h4>
+                        <p class="card-text p-3">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                         <a class="btn btn-primary">Book Now</a>
                     </div>
                 </div>
@@ -20,8 +20,8 @@
                 <div class="card" style="width: 18rem;" *ngIf = "id==='check'">
                     <img class="card-img-top" src="..." alt="Card image cap">
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <h4 class="card-title">Card title</h4>
+                        <p class="card-text p-3">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                         <a class="btn btn-primary">Go somewhere</a>
                     </div>
                 </div>
@@ -30,8 +30,8 @@
                 <div class="card" style="width: 18rem;" *ngIf = "id==='view'">
                     <img class="card-img-top" src="..." alt="Card image cap">
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <h4 class="card-title">Card title</h4>
+                        <p class="card-text p-3">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                         <a class="btn btn-primary">Go somewhere</a>
                     </div>
                 </div>
@@ -41,79 +41,96 @@
     <!---  nav-starts------------------->
     <ul class="nav nav-pills justify-content-center">
         <li class="nav-item px-2">
-          <a class="nav-link bg-c" id="select" (click)="tabsChange('select')" [class.color]="id==='select'">Active</a>
+            <a class="nav-link bg-c" id="select" (click)="tabsChange('select')" [class.color]="id==='select'">Active</a>
         </li>
         <li class="nav-item px-2">
-          <a class="nav-link bg-c" id="check" (click)="tabsChange('check')" [class.color]="id==='check'">Upcoming</a>
+            <a class="nav-link bg-c" id="check" (click)="tabsChange('check')" [class.color]="id==='check'">Upcoming</a>
         </li>
         <!-- <li class="nav-item px-2">
           <a class="nav-link bg-c" id="view" (click)="tabsChange('view')" [class.color]="id==='view'">Link</a>
         </li> -->
     </ul>
+    <div class="col-md-12 p-0">
         <div class="col-md-12 p-0">
-            <div class="col-md-12 p-0">
-                <div class="row m-0 mt-4">
-                 <div class="col-md-4 p-0 pe-2">
-                    <div class="card" *ngIf ="id==='select'">
-                        <img class="card-img-top" src="../../../assets/painting.jpg"alt="Card image cap">
+            <div class="row m-0 mt-4">
+                <div class="col-md-4 p-0 pe-2" *ngFor="let item of lists">
+                    <div class="card" *ngIf="id==='select'">
+                        <img class="card-img-top" src="{{item.imageCover}}" alt="Card image cap">
                         <div class="card-body">
-                            <h5 class="card-title text-center">Painting</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a class="btn bg-c book" [routerLink]="['/booking/sub-service']">Book Now</a>
+                            <h4 class="card-title text-center">{{item.name}}</h4>
+                            <p class="card-text p-3 text-center">{{item.description}}</p>
+                            <div class="d-flex justify-content-center py-3">
+                                <a class="btn bg-c book" routerLink="/booking/sub-service/{{item._id}}">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="col-md-4 p-0 pe-2">
+                    <div class="card" *ngIf="id==='select'">
+                        <img class="card-img-top" src="../../../assets/plumbing.jpg" alt="Card image cap">
+                        <div class="card-body">
+                            <h4 class="card-title text-center">Plumbing</h4>
+                            <p class="card-text p-3 p-3">Some quick example text to build on the card title and make up
+                                the bulk of the card's content.</p>
+                            <div class="d-flex justify-content-center py-3">
+                                <a class="btn bg-c book" [routerLink]="['/booking/sub-service']">Book Now</a>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4 p-0 pe-2">
-                    <div class="card" *ngIf ="id==='select'">
-                        <img class="card-img-top" src="../../../assets/plumbing.jpg"alt="Card image cap">
+                    <div class="card" *ngIf="id==='select'">
+                        <img class="card-img-top" src="../../../assets/electricity.jpg" alt="Card image cap">
                         <div class="card-body">
-                            <h5 class="card-title text-center">Plumbing</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a class="btn bg-c book" [routerLink]="['/booking/sub-service']">Book Now</a>
+                            <h4 class="card-title text-center">Electricity</h4>
+                            <p class="card-text p-3">Some quick example text to build on the card title and make up the
+                                bulk of the card's content.</p>
+                            <div class="d-flex justify-content-center py-3">
+                                <a class="btn bg-c book" [routerLink]="['/booking/sub-service']">Book Now</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-4 p-0 pe-2">
-                    <div class="card" *ngIf ="id==='select'">
-                        <img class="card-img-top" src="../../../assets/electricity.jpg"alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title text-center">Electricity</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a class="btn bg-c book" [routerLink]="['/booking/sub-service']">Book Now</a>
-                        </div>
-                    </div>
-                </div>
+                </div> -->
             </div>
         </div>
-        <div class="col-12 col-md-12 col-sm-12 p-0 mt-2">
+        <!-- <div class="col-12 col-md-12 col-sm-12 p-0 mt-2">
             <div class="row m-0">
                 <div class="col-md-4 p-0 pe-2">
-                    <div class="card" *ngIf ="id==='select'">
-                        <img class="card-img-top" src="../../../assets/roofing.jpg"alt="Card image cap">
+                    <div class="card" *ngIf="id==='select'">
+                        <img class="card-img-top" src="../../../assets/roofing.jpg" alt="Card image cap">
                         <div class="card-body">
-                            <h5 class="card-title text-center">roofing</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a class="btn bg-c book" [routerLink]="['/booking/sub-service']">Book Now</a>
+                            <h4 class="card-title text-center">roofing</h4>
+                            <p class="card-text p-3">Some quick example text to build on the card title and make up the
+                                bulk of the card's content.</p>
+                            <div class="d-flex justify-content-center py-3">
+                                <a class="btn bg-c book" [routerLink]="['/booking/sub-service']">Book Now</a>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4 p-0 pe-2">
-                    <div class="card" *ngIf ="id==='select'">
-                        <img class="card-img-top" src="../../../assets/renovation.jpg"alt="Card image cap">
+                    <div class="card" *ngIf="id==='select'">
+                        <img class="card-img-top" src="../../../assets/renovation.jpg" alt="Card image cap">
                         <div class="card-body">
-                            <h5 class="card-title text-center">renovation</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a class="btn bg-c book" [routerLink]="['/booking/sub-service']">Book Now</a>
+                            <h4 class="card-title text-center">renovation</h4>
+                            <p class="card-text p-3">Some quick example text to build on the card title and make up the
+                                bulk of the card's content.</p>
+                            <div class="d-flex justify-content-center py-3">
+                                <a class="btn bg-c book" [routerLink]="['/booking/sub-service']">Book Now</a>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4 p-0 pe-2">
-                    <div class="card" *ngIf ="id==='select'">
-                        <img class="card-img-top" src="../../../assets/cleaning.jpeg"alt="Card image cap">
+                    <div class="card" *ngIf="id==='select'">
+                        <img class="card-img-top" src="../../../assets/cleaning.jpeg" alt="Card image cap">
                         <div class="card-body">
-                            <h5 class="card-title text-center">cleaning</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a class="btn bg-c book" [routerLink]="['/booking/sub-service']">Book Now</a>
+                            <h4 class="card-title text-center">cleaning</h4>
+                            <p class="card-text p-3">Some quick example text to build on the card title and make up the
+                                bulk of the card's content.</p>
+                            <div class="d-flex justify-content-center py-3">
+                                <a class="btn bg-c book" [routerLink]="['/booking/sub-service']">Book Now</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -122,32 +139,41 @@
         <div class="col-md-12 p-0">
             <div class="row m-0 m-0">
                 <div class="col-md-4 p-0 pe-2">
-                    <div class="card" *ngIf ="id==='check'">
-                        <img class="card-img-top" src="../../../assets/p-1.jpg"alt="Card image cap">
+                    <div class="card" *ngIf="id==='check'">
+                        <img class="card-img-top" src="../../../assets/p-1.jpg" alt="Card image cap">
                         <div class="card-body">
-                            <h5 class="card-title text-center">title Name</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a class="btn bg-c book" [routerLink]="['/booking/sub-service']">Book Now</a>
+                            <h4 class="card-title text-center">title Name</h4>
+                            <p class="card-text p-3">Some quick example text to build on the card title and make up the
+                                bulk of the card's content.</p>
+                            <div class="d-flex justify-content-center py-3">
+                                <a class="btn bg-c book" [routerLink]="['/booking/sub-service']">Book Now</a>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4 p-0 pe-2">
-                    <div class="card" *ngIf ="id==='check'">
-                        <img class="card-img-top" src="../../../assets/p-3.jpg"alt="Card image cap">
+                    <div class="card" *ngIf="id==='check'">
+                        <img class="card-img-top" src="../../../assets/p-3.jpg" alt="Card image cap">
                         <div class="card-body">
-                            <h5 class="card-title text-center">title Name</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a class="btn bg-c book" [routerLink]="['/booking/sub-service']">Book Now</a>
+                            <h4 class="card-title text-center">title Name</h4>
+                            <p class="card-text p-3">Some quick example text to build on the card title and make up the
+                                bulk of the card's content.</p>
+                            <div class="d-flex justify-content-center py-3">
+                                <a class="btn bg-c book" [routerLink]="['/booking/sub-service']">Book Now</a>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4 p-0 pe-2">
-                    <div class="card" *ngIf ="id==='check'">
-                        <img class="card-img-top" src="../../../assets/p-2.png"alt="Card image cap">
+                    <div class="card" *ngIf="id==='check'">
+                        <img class="card-img-top" src="../../../assets/p-2.png" alt="Card image cap">
                         <div class="card-body">
-                            <h5 class="card-title text-center">title Name</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a class="btn bg-c book" [routerLink]="['/booking/sub-service']">Book Now</a>
+                            <h4 class="card-title text-center">title Name</h4>
+                            <p class="card-text p-3">Some quick example text to build on the card title and make up the
+                                bulk of the card's content.</p>
+                            <div class="d-flex justify-content-center py-3">
+                                <a class="btn bg-c book" [routerLink]="['/booking/sub-service']">Book Now</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -156,47 +182,59 @@
         <div class="col-md-12 p-0">
             <div class="row m-0 m-0">
                 <div class="col-md-4 p-0 pe-2">
-                    <div class="card" *ngIf ="id==='view'">
-                        <img class="card-img-top" src="../../../assets/p-2.png"alt="Card image cap">
+                    <div class="card" *ngIf="id==='view'">
+                        <img class="card-img-top" src="../../../assets/p-2.png" alt="Card image cap">
                         <div class="card-body">
-                            <h5 class="card-title text-center">title Name</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a class="btn bg-c book" [routerLink]="['/booking/sub-service']">Book Now</a>
+                            <h4 class="card-title text-center">title Name</h4>
+                            <p class="card-text p-3">Some quick example text to build on the card title and make up the
+                                bulk of the card's content.</p>
+                            <div class="d-flex justify-content-center py-3">
+                                <a class="btn bg-c book" [routerLink]="['/booking/sub-service']">Book Now</a>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4 p-0 pe-2">
-                    <div class="card" *ngIf ="id==='view'">
-                        <img class="card-img-top" src="../../../assets/p-1.jpg"alt="Card image cap">
+                    <div class="card" *ngIf="id==='view'">
+                        <img class="card-img-top" src="../../../assets/p-1.jpg" alt="Card image cap">
                         <div class="card-body">
-                            <h5 class="card-title text-center">title Name</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a class="btn bg-c book" [routerLink]="['/booking/sub-service']">Book Now</a>
+                            <h4 class="card-title text-center">title Name</h4>
+                            <p class="card-text p-3">Some quick example text to build on the card title and make up the
+                                bulk of the card's content.</p>
+                            <div class="d-flex justify-content-center py-3">
+                                <a class="btn bg-c book" [routerLink]="['/booking/sub-service']">Book Now</a>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4 p-0 pe-2">
-                    <div class="card" *ngIf ="id==='view'">
-                        <img class="card-img-top" src="../../../assets/p-3.jpg "alt="Card image cap">
+                    <div class="card" *ngIf="id==='view'">
+                        <img class="card-img-top" src="../../../assets/p-3.jpg " alt="Card image cap">
                         <div class="card-body">
-                            <h5 class="card-title text-center">title Name</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a class="btn bg-c book" [routerLink]="['/booking/sub-service']">Book Now</a>
+                            <h4 class="card-title text-center">title Name</h4>
+                            <p class="card-text p-3">Some quick example text to build on the card title and make up the
+                                bulk of the card's content.</p>
+                            <div class="d-flex justify-content-center py-3">
+                                <a class="btn bg-c book" [routerLink]="['/booking/sub-service']">Book Now</a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
     <div class="col-md-12 p-0">
         <div class="row m-0 mt-4">
             <div class="col-md-4 p-0 pe-2">
-                <div class="card" *ngIf ="id==='view'">
-                    <img class="card-img-top" src="../../../assets/painting.jpg"alt="Card image cap">
+                <div class="card" *ngIf="id==='view'">
+                    <img class="card-img-top" src="../../../assets/painting.jpg" alt="Card image cap">
                     <div class="card-body">
-                        <h5 class="card-title text-center">title Name</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a class="btn bg-c book" [routerLink]="['/booking/sub-service']">Book Now</a>
+                        <h4 class="card-title text-center">title Name</h4>
+                        <p class="card-text p-3">Some quick example text to build on the card title and make up the bulk
+                            of the card's content.</p>
+                        <div class="d-flex justify-content-center py-3">
+                            <a class="btn bg-c book" [routerLink]="['/booking/sub-service']">Book Now</a>
+                        </div>
                     </div>
                 </div>
                 <!-- <div  class="type">
@@ -242,22 +280,26 @@
                 </div> -->
             </div>
             <div class="col-md-4 p-0 pe-2">
-                <div class="card" *ngIf ="id==='view'">
-                    <img class="card-img-top" src="../../../assets/plumbing.jpg"alt="Card image cap">
+                <div class="card" *ngIf="id==='view'">
+                    <img class="card-img-top" src="../../../assets/plumbing.jpg" alt="Card image cap">
                     <div class="card-body">
-                        <h5 class="card-title text-center">title Name</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a class="btn bg-c book" [routerLink]="['/booking/sub-service']" >Book Now</a>
+                        <h4 class="card-title text-center">title Name</h4>
+                        <p class="card-text p-3">Some quick example text to build on the card title and make up the bulk
+                            of the card's content.</p>
+                        <a class="btn bg-c book" [routerLink]="['/booking/sub-service']">Book Now</a>
                     </div>
                 </div>
             </div>
             <div class="col-md-4 p-0 pe-2">
-                <div class="card" *ngIf ="id==='view'">
-                    <img class="card-img-top" src="../../../assets/electricity.jpg"alt="Card image cap">
+                <div class="card" *ngIf="id==='view'">
+                    <img class="card-img-top" src="../../../assets/electricity.jpg" alt="Card image cap">
                     <div class="card-body">
-                        <h5 class="card-title text-center">title Name</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a class="btn bg-c book" [routerLink]="['/booking/sub-service']">Book Now</a>
+                        <h4 class="card-title text-center">title Name</h4>
+                        <p class="card-text p-3">Some quick example text to build on the card title and make up the bulk
+                            of the card's content.</p>
+                        <div class="d-flex justify-content-center py-3">
+                            <a class="btn bg-c book" [routerLink]="['/booking/sub-service']">Book Now</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -269,9 +311,11 @@
                 <div class="card" *ngIf ="id==='check'">
                     <img class="card-img-top" src="../../../assets/roofing.jpg"alt="Card image cap">
                     <div class="card-body">
-                        <h5 class="card-title text-center">title Name</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a class="btn bg-c book" [routerLink]="['/booking/sub-service']">Book Now</a>
+                        <h4 class="card-title text-center">title Name</h4>
+                        <p class="card-text p-3">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <div class="d-flex justify-content-center py-3">
+                                <a class="btn bg-c book" [routerLink]="['/booking/sub-service']">Book Now</a>
+                            </div>
                     </div>
                 </div>
             </div>
@@ -279,9 +323,11 @@
                 <div class="card" *ngIf ="id==='check'">
                     <img class="card-img-top" src="../../../assets/renovation.jpg"alt="Card image cap">
                     <div class="card-body">
-                        <h5 class="card-title text-center">title Name</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a class="btn bg-c book" [routerLink]="['/booking/sub-service']">Book Now</a>
+                        <h4 class="card-title text-center">title Name</h4>
+                        <p class="card-text p-3">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <div class="d-flex justify-content-center py-3">
+                                <a class="btn bg-c book" [routerLink]="['/booking/sub-service']">Book Now</a>
+                            </div>
                     </div>
                 </div>
             </div>
@@ -289,9 +335,11 @@
                 <div class="card" *ngIf ="id==='check'">
                     <img class="card-img-top" src="../../../assets/cleaning.jpeg"alt="Card image cap">
                     <div class="card-body">
-                        <h5 class="card-title text-center">title Name</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a class="btn bg-c book" [routerLink]="['/booking/sub-service']">Book Now</a>
+                        <h4 class="card-title text-center">title Name</h4>
+                        <p class="card-text p-3">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <div class="d-flex justify-content-center py-3">
+                                <a class="btn bg-c book" [routerLink]="['/booking/sub-service']">Book Now</a>
+                            </div>
                     </div>
                 </div>
             </div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AllServices } from 'src/app/services/All-services';
+import { Router } from '@angular/router';
+import { AllServices } from 'src/app/services/All-services.service';
 
 @Component({
   selector: 'app-service-list',
@@ -8,8 +9,8 @@ import { AllServices } from 'src/app/services/All-services';
 })
 export class ServiceListComponent implements OnInit {
 
-
-  constructor( private allServices:AllServices) { }
+  lists:any;
+  constructor( private allServices:AllServices, private router:Router) { }
   id:any="select";
   ngOnInit(){
     this.serviceList()
@@ -17,7 +18,8 @@ export class ServiceListComponent implements OnInit {
   }
   serviceList(){
     this.allServices.getAllServices().subscribe(res=>{
-      console.log(res)
+      this.lists=res.data.service
+      console.log(this.lists)
     })
   }
 
