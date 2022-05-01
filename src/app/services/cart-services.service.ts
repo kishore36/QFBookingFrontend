@@ -1,15 +1,14 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { catchError, Observable, Subject, throwError } from "rxjs";
+import { catchError, Observable, throwError } from "rxjs";
 import { environment } from "src/environments/environment";
 @Injectable({
     providedIn: 'root'
   })
-  export class subServices{
-
+  export class cartServices{
+    
       apiUrl=environment.BASE_API_URL;
-      public currentUser = " ";
-      cartSubject = new Subject<any>();
+
       constructor( private http:HttpClient){
 
       }
@@ -18,8 +17,8 @@ import { environment } from "src/environments/environment";
         return throwError(error);
       }
      
-      getAllSubServices(): Observable<any> {
-        return this.http.get<any>(this.apiUrl+'subService')
+      getCartServices(): Observable<any> {
+        return this.http.get<any>(this.apiUrl+'cart')
           .pipe(catchError(this.errorHandler));
       }
   }
