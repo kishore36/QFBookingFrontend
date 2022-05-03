@@ -1,10 +1,48 @@
 /* You can add global styles to this file, and also import other style files */
+html {
+    --scrollbarBG:#fff;
+    --thumbBG: #F1592A;
+  }
+body{
+    font-family: 'Source Sans Pro', sans-serif;
+    // scrollbar-color: #A1592A;
+    scrollbar-width: thin;
+    
+    
+    
+}
+// ::-webkit-scrollbar-button {
+//     width: 50px; //for horizontal scrollbar
+//     height: 50px; //for vertical scrollbar
+//   }
+::-webkit-scrollbar-track-piece{ 
+    height: 30%;
+}
+::-webkit-scrollbar {
+    width: 18px;
+    }
+    
+::-webkit-scrollbar-track {
+    background: var(--scrollbarBG) !important;
+    }
+
+::-webkit-scrollbar-thumb{
+    background-color: var(--thumbBG) !important;
+    border-radius: 6px;
+    -webkit-width:10px;
+    border: 3px solid var(--scrollbarBG) !important;
+}
+
 .bg-c{
     background-color:#F1592A;
     color: #000;
 }
+h1,h2,h3,h4,h5{
+    color: #263a4f;;
+}
 p{
     margin: 0px;
+    color:#8d9aa8;
 }
 a {
     all: unset;

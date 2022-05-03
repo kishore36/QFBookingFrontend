@@ -1,0 +1,68 @@
+h2 {
+    font-size: 32px;
+    line-height: 42px;
+    color: #263a4f;
+    margin: 0 0 10px;
+    font-weight: 600;
+    letter-spacing: -1px;
+}
+
+h3{
+    font-size: 20px;
+}
+
+h3, h4 {
+    margin: 0 0 10px;
+    line-height: 1.7;
+    color: #263a4f;
+    letter-spacing: -0.5px;
+    font-weight: 600;
+}
+p {
+    font-size: 16px;
+    line-height: 26px;
+    margin-bottom: 15px;
+}
+.padding {
+    padding: 100px 0;
+}
+.fadeInLeft {
+    -webkit-animation-name: fadeInLeft;
+    animation-name: fadeInLeft;
+}
+.default-btn {
+    background-color: #ff7607;
+    text-transform: uppercase;
+    font-family: "Work Sans",sans-serif;
+    color: #fff;
+    font-size: 12px;
+    border-radius: 2px;
+    line-height: 45px;
+    font-weight: 600;
+    display: inline-block;
+    letter-spacing: 0.5px;
+    padding: 0 30px;
+    -webkit-box-shadow: 0 3px 10px rgb(71 44 173 / 20%);
+    box-shadow: 0 3px 10px rgb(71 44 173 / 20%);
+}
+.about-promo {
+    padding-left: 80px;
+}
+.about-promo .about-promo-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+.about-promo .about-promo-item i {
+    font-size: 70px;
+    color: #ff7607;
+    margin-right: 30px;
+}
+.about-promo .about-promo-item:last-child {
+    margin-bottom: 0;
+}
+.about-promo .about-promo-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}

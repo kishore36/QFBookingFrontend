@@ -1,30 +1,119 @@
-
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark px-3">
-    <a class="navbar-brand" >QuickFix</a>
+<nav class="navbar navbar-expand-lg navbar-light px-3">
+    <a class="navbar-brand pt-3" ><img src="../../../assets/quick.png"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-bs-toggle="dropdown" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
   
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto w-100">
+      <ul class="navbar-nav mr-auto w-100 px-4">
         <li class="nav-item active">
-          <a class="nav-link" >Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" [routerLink]="'/booking/Home'">HOME <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" >About</a>
+          <a class="nav-link" [routerLink]="'/booking/about-us'">ABOUT</a>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
-            services
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <!-- <li class="nav-item">
+          <a class="nav-link" [routerLink]="'/booking/service-list'">SERVICES</a> -->
+          <!-- <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" >services-1</a>
             <a class="dropdown-item" >services-2</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" >services-3</a>
-          </div>
+          </div> -->
+        <!-- </li> -->
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="'/booking/contact-us'">CONTACT US</a>
         </li>
-        <li class=" nav-item cart-icon"><i class="fa fa-shopping-cart" aria-hidden="true"><span class="badge badge-secondary">{{cartItems}}</span></i>Cart</li>
+        <li class="nav-item cart-icon" [routerLink]="'/booking/cart'"><i class="fa fa-shopping-cart cart" aria-hidden="true">
+          <span class="badge badge-secondary">{{cartItems}} CART</span></i>
+        </li>
       </ul>
     </div>
   </nav>
+  <!-- <nav class="navbar navbar-expand-lg navbar-color bg-dark px-3">
+    <div class="container-fluid nav-head second">
+      <a class="navbar-brand fw-bold tc-w">Quick Construction</a>
+      <button
+        class="navbar-toggler bg-w"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a
+              class="nav-link active fw-bold"
+              aria-current="page"
+              routerLink="/home"
+              routerLinkActive="nav-active"
+              >HOME</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link fw-bold"
+              tabindex="-1"
+              routerLink="/about-us"
+              routerLinkActive="nav-active"
+              >ABOUT US</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link fw-bold"
+              routerLink="/projects"
+              routerLinkActive="nav-active"
+              >SERVICES</a
+            >
+          </li> -->
+          <!-- <li class="nav-item">
+            <a
+              class="nav-link fw-bold"
+              tabindex="-1"
+              routerLink="/services"
+              routerLinkActive="nav-active"
+              >SERVICES</a
+            >
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+              services
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" >services-1</a>
+              <a class="dropdown-item" >services-2</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" >services-3</a>
+            </div>
+          </li> -->
+          <!-- <li class="nav-item">
+            <a
+              class="nav-link fw-bold"
+              tabindex="-1"
+              routerLink="/gallery"
+              routerLinkActive="nav-active"
+              >GALLERY</a
+            >
+          </li> -->
+          <!-- <li class="nav-item">
+            <a
+              class="nav-link fw-bold"
+              tabindex="-1"
+              routerLink="/contact-us"
+              routerLinkActive="nav-active"
+              >CONTACT</a
+            >
+          </li>
+          <li class=" nav-item cart-icon"><i class="fa fa-shopping-cart" aria-hidden="true">
+            <span class="badge badge-secondary">{{cartItems}}</span></i>Cart
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav> -->

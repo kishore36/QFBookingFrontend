@@ -9,7 +9,7 @@ import { subServices } from 'src/app/services/sub-services.service';
 export class HeaderComponent implements OnInit {
 
   public cartItems:any=0;
-
+  // showMe:boolean=false;
   constructor(private subService:subServices) {
     this.subService.cartSubject.subscribe(res => {this.cartItems = res
       console.log(res)})
@@ -18,5 +18,7 @@ export class HeaderComponent implements OnInit {
   
   ngOnInit() {
   }
-
+  // toggle(){
+  //   this.showMe=!this.showMe
+  // }
 }

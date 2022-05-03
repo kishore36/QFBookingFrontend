@@ -105,9 +105,11 @@ a:hover{
 	position: absolute;
 	bottom: 20px;
 	right: 20px;
-	padding: 10px 25px;
+	padding: 10px 20px;
 	// background-color: #3a71a9;
 	// color: white;
+	display: flex;
+	align-items: center;
 	cursor: pointer;
 	border-radius: 5px;
 }
@@ -125,9 +127,9 @@ a:hover{
 		text-align: center;
 	}
 }
-.btn-area i {
-	margin-right: 5px;
-}
+// .btn-area i {
+// 	margin-right: 5px;
+// }
 .right-bar {
 	flex: 25%;
 	margin-left: 20px;
