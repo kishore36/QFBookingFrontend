@@ -47,34 +47,35 @@ export class SubServiceListComponent implements OnInit {
     if(checkForNull == null){
       let storageArray = [];
       storageArray.push(subId)
-      localStorage.setItem('myCart' , JSON.stringify(storageArray))
+      localStorage.setItem('myCart' , JSON.stringify(storageArray));
     }
-    // else{
-    //   let id = subId._id;
-    //   let  index:number = -1;
-    //   this.cartItems =JSON.parse(localStorage.getItem('myCart'));
-    //   console.log(this.cartItems)
-    //   for( let i=0 ; i<this.cartItems.length; i++){
-    //     if(parseInt(id) === parseInt(this.cartItems[i]._id)){
-    //       this.cartItems[i].unit = subId.unit;
-    //       index = i
-    //       break;
-    //     }
-    //   }
-    //   console.log(this.cartItems)
-    //   if(index == -1){
-    //     console.log(subId)
-    //     this.cartItems.push(subId) 
-    //     localStorage.setItem('myCart',JSON.stringify(this.cartItems))
-    //   }
-    // }
-    this.cartNumberFunction() 
+    else{
+      let id = subId._id;
+      console.log(id);
+      let  index:number = -1;
+      this.cartItems =JSON.parse(localStorage.getItem('myCart') || '{}');
+      console.log(this.cartItems);
+      for( let i=0 ; i<this.cartItems.length; i++){
+        if(parseInt(id) === parseInt(this.cartItems[i]._id)){
+          this.cartItems[i].unit = subId.unit;
+          index = i;
+          break;
+        }
+      }
+      console.log(this.cartItems);
+      if(index == -1){
+        console.log(subId);
+        this.cartItems.push(subId) ;
+        localStorage.setItem('myCart',JSON.stringify(this.cartItems));
+      }
+    }
+    this.cartNumberFunction() ;
   }
   cartNumber:number = 0;
   cartNumberFunction(){
-    let cartValue:any = localStorage.getItem('myCart')
-    console.log(cartValue)
-    this.cartNumber = cartValue.length
-    this.subService.cartSubject.next(this.cartNumber)
+    let cartValue:any = JSON.parse(localStorage.getItem('myCart') || '{}');
+    console.log(cartValue);
+    this.cartNumber = cartValue.length;
+    this.subService.cartSubject.next(this.cartNumber);
   }
 }

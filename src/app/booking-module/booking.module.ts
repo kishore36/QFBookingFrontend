@@ -12,6 +12,7 @@ import { TestimonialsComponent } from './home/testimonials/testimonials.componen
 import { ServiceSectionComponent } from './home/service-section/service-section.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 const bookRoutes:Routes=[
   {path:"home",component:ServiceDescriptionComponent},
@@ -23,7 +24,8 @@ const bookRoutes:Routes=[
   {path:"cart",component:CartComponent},
   {path:"Home",component:HomeComponent},
   {path:"about-us",component:AboutUsComponent},
-  {path:"contact-us",component:ContactUsComponent}
+  {path:"contact-us",component:ContactUsComponent},
+  {path:"order",component:CheckoutComponent}
 ]
 
 @NgModule({
@@ -38,7 +40,8 @@ const bookRoutes:Routes=[
     TestimonialsComponent,
     ServiceSectionComponent,
     AboutUsComponent,
-    ContactUsComponent
+    ContactUsComponent,
+    CheckoutComponent
   ],
   imports: [ 
     CommonModule,
