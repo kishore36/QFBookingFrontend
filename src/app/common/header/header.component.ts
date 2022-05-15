@@ -4,22 +4,19 @@ import { subServices } from 'src/app/services/sub-services.service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
+  public cartItems: any;
 
-  public cartItems:any;
-  // showMe:boolean=false;
-  constructor(private subService:subServices) {
-    this.subService.cartSubject.subscribe(res => {this.cartItems = res
-      console.log(res)})
-      console.log(this.cartItems)
-   }
-  
-  ngOnInit() {
-
+  constructor(private subService: subServices) {
+    if (localStorage.getItem('myCart')) {
+      this.cartItems = JSON.parse(localStorage.getItem('myCart') || '{}');
+      this.cartItems = this.cartItems.length;
+    } else {
+      this.cartItems = 0;
+    }
   }
-  // toggle(){
-  //   this.showMe=!this.showMe
-  // }
+
+  ngOnInit() {}
 }

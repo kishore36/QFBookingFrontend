@@ -43,51 +43,41 @@
     </div>
 </div> -->
 
-
-<!--- cart page-1 ---------------------> 
- <div class="wrapper">
-    <h1>Shopping Cart</h1>
-    <div class="project">
-        <div class="shop">
-            <div class="box">
-                <img src="../../../assets/painting.jpg">
-                <div class="content">
-                    <h3>Women Lipsticks</h3>
-                    <h4>Price: $40</h4>
-                    <p class="unit">Quantity: <input name="" value="2"></p>
-                    <p class="btn-area bg-c"><i aria-hidden="true" class="fa fa-trash"></i></p>
-                </div>
-            </div>
-            <div class="box">
-                <img src="../../../assets/cleaning.jpeg">
-                <div class="content">
-                    <h3>Man's Watches</h3>
-                    <h4>Price: $40</h4>
-                    <p class="unit">Quantity: <input name="" value="1"></p>
-                    <p class="btn-area bg-c"><i aria-hidden="true" class="fa fa-trash"></i></p>
-                </div>
-            </div>
-            <div class="box">
-                <img src="../../../assets/electricity.jpg">
-                <div class="content">
-                    <h3>Samsung Mobile</h3>
-                    <h4>Price: $250</h4>
-                   <div class="d-flex">
-                    <p class="unit">Quantity: <input name="" value="0"></p>
-                    <p class="btn-area bg-c"><i aria-hidden="true" class="fa fa-trash"></i></p>
-                   </div>
-                </div>
-            </div>
+<!--- cart page-1 --------------------->
+<div class="wrapper">
+  <h1>Shopping Cart</h1>
+  <div class="project">
+    <div class="shop">
+      <div class="box" *ngFor="let service of cartDetails">
+        <img src="{{ service.images }}" />
+        <div class="content">
+          <h3>
+            <a routerLink="/booking/service-list">{{ service.name }}</a>
+          </h3>
+          <h4>Price: {{ service.rate * service.unit }} Rs</h4>
+          <p class="unit">
+            Quantity: <input name="" value="{{ service.unit }}" />
+          </p>
+          <p class="btn-area bg-c" (click)="singleDelete(service._id)">
+            <i aria-hidden="true" class="fa fa-trash"></i>
+          </p>
         </div>
-        <div class="right-bar">
-            <p><span>Subtotal</span> <span>$120</span></p>
-            <hr>
-            <p><span>Unit</span> <span>1</span></p>
-            <!-- <hr> -->
-            <!-- <p><span>Shipping</span> <span>$15</span></p> -->
-            <hr>
-            <p><span>Total</span> <span>$141</span></p><a class="bg-c" ><i class="fa fa-shopping-cart"></i>Checkout</a>
-        </div>
+      </div>
     </div>
+    <div class="right-bar">
+      <p>
+        <span>Subtotal</span> <span>{{ grandTotal }}</span>
+      </p>
+      <!-- <hr /> -->
+      <!-- <p><span>Unit</span> <span>1</span></p> -->
+      <hr />
+      <p>
+        <span>Total</span> <span>{{ grandTotal }}</span>
+      </p>
+      <a class="bg-c" [routerLink]="'/booking/order'"
+        ><i class="fa fa-shopping-cart"></i>Checkout</a
+      >
+    </div>
+  </div>
 </div>
-<!--- cart page-1 ends---------------------> 
+<!--- cart page-1 ends--------------------->
