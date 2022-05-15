@@ -51,7 +51,7 @@ export class SubServiceListComponent implements OnInit {
       let index: number = -1;
       this.cartItems = JSON.parse(localStorage.getItem('myCart') || '{}');
       for (let i = 0; i < this.cartItems.length; i++) {
-        if (parseInt(id) === parseInt(this.cartItems[i]._id)) {
+        if (id === this.cartItems[i]._id) {
           this.cartItems[i].unit = subId.unit;
           index = i;
           break;

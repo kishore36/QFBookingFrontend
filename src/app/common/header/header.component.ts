@@ -7,16 +7,19 @@ import { subServices } from 'src/app/services/sub-services.service';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  public cartItems: any;
+  public cartItems: any=0;
 
   constructor(private subService: subServices) {
-    if (localStorage.getItem('myCart')) {
-      this.cartItems = JSON.parse(localStorage.getItem('myCart') || '{}');
-      this.cartItems = this.cartItems.length;
-    } else {
-      this.cartItems = 0;
-    }
+    this.subService.cartSubject.subscribe(res => this.cartItems = res)
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.cartItemFunction()
+  }
+  cartItemFunction(){
+    if(localStorage.getItem('myCart') !== null){
+      let cartCount = JSON.parse(localStorage.getItem('myCart')|| '{}')
+      this.cartItems = cartCount.length
+    }
+  }
 }
