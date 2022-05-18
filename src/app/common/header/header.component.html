@@ -30,8 +30,11 @@
         <li class="nav-item">
           <a class="nav-link" [routerLink]="'/booking/contact-us'">CONTACT US</a>
         </li>
-        <li class="nav-item cart-icon" [routerLink]="'/booking/cart'"><i class="fa fa-shopping-cart cart" aria-hidden="true">
-          <span class="badge badge-secondary">{{cartItems}} CART</span></i>
+        <li class="nav-item cart-icon ms-auto" [routerLink]="'/booking/cart'"><i class="fa fa-shopping-cart cart" aria-hidden="true">
+          <span class="badge badge-secondary">{{cartItems}}</span></i>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link sign" [routerLink]="'/login'">SIGNIN</a>
         </li>
       </ul>
     </div>

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { ServiceListComponent } from './service-list/service-list.component';
 import { ServiceDescriptionComponent } from './service-description/service-description.component';
 import { BooknowComponent } from './book-now/book-now.component';
@@ -45,6 +46,8 @@ const bookRoutes:Routes=[
   ],
   imports: [ 
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule.forChild(bookRoutes)
   ]
 })

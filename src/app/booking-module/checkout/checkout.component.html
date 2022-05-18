@@ -3,12 +3,12 @@
     <h2>Product Order Form</h2>
   </div>
   <div class="d-flex">
-    <form action="" method="">
+    <form [formGroup]="orderForm" (ngSubmit)="submitOrder()">
       <label>
         <span class="fname">Full Name <span class="required">*</span></span>
-        <input type="text" name="fname" />
+        <input type="text" name="fname" formControlName="name" />
       </label>
-      <label>
+      <!-- <label>
         <span>Country <span class="required">*</span></span>
         <select name="selection">
           <option value="select">Select a country...</option>
@@ -268,45 +268,46 @@
           <option value="ZMB">Zambia</option>
           <option value="ZWE">Zimbabwe</option>
         </select>
-      </label>
+      </label> -->
       <label>
         <span>Street Address <span class="required">*</span></span>
         <input
           type="text"
           name="houseadd"
           placeholder="House No, Building and Street Area"
+          formControlName="address"
           required
         />
       </label>
-      <label>
+      <!-- <label>
         <span>&nbsp;</span>
         <input
           type="text"
           name="apartment"
           placeholder="Apartment, suite, unit etc. (optional)"
         />
-      </label>
+      </label> -->
       <label>
         <span>Town / City <span class="required">*</span></span>
         <input type="text" name="city" />
       </label>
-      <label>
+      <!-- <label>
         <span>State / County <span class="required">*</span></span>
         <input type="text" name="city" />
-      </label>
-      <label>
+      </label> -->
+      <!-- <label>
         <span>Pincode <span class="required">*</span></span>
-        <input type="text" name="city" />
-      </label>
+        <input type="text" name="city" formControlName="pincode"/>
+      </label> -->
       <label>
         <span>Phone <span class="required">*</span></span>
-        <input type="tel" name="city" />
+        <input type="tel" name="phone" formControlName="phone"/>
       </label>
       <label>
         <span>Email Address <span class="required">*</span></span>
-        <input type="email" name="city" />
+        <input type="email" name="city" formControlName="email"/>
       </label>
-    </form>
+    
     <div class="Yorder">
       <table>
         <tr>
@@ -327,8 +328,9 @@
       </table>
       <br />
       <div><input type="radio" name="dbt" value="cd" /> Cash on Delivery</div>
-      <button type="submit" (click)="placeOrder()">Place Order</button>
+      <button type="submit" class="bg-c">Place Order</button>
     </div>
-    <!-- Yorder -->
+  </form>
   </div>
 </div>
+
