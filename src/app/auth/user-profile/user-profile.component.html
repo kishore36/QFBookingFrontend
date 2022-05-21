@@ -4,45 +4,96 @@
         <!-- Nav tabs -->
         <div class="card">
           <div class="card-header">
-            <ul class="nav nav-tabs justify-content-between" role="tablist">
+            <ul class="nav nav-tabs " role="tablist">
               <li class="nav-item">
                 <a class="nav-link active" data-bs-toggle="tab" data-bs-target="#home" role="tab">
-                  <i class="now-ui-icons objects_umbrella-13"></i> Home
+                  My Profile
                 </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" data-bs-toggle="tab" data-bs-target="#profile" role="tab">
-                  <i class="now-ui-icons shopping_cart-simple"></i> Profile
+                  My Orders
                 </a>
               </li>
-              <li class="nav-item">
+              <!-- <li class="nav-item">
                 <a class="nav-link" data-bs-toggle="tab" data-bs-target="#messages" role="tab">
-                  <i class="now-ui-icons shopping_shop"></i> Messages
+                  My Addresses
                 </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" data-bs-toggle="tab" data-bs-target="#settings" role="tab">
-                  <i class="now-ui-icons ui-2_settings-90"></i> Settings
+                   Mb Cash
                 </a>
-              </li>
+              </li> -->
             </ul>
           </div>
           <div class="card-body card-content">
             <!-- Tab panes -->
             <div class="tab-content text-center">
-              <div class="tab-pane active" id="home" role="tabpanel">
+              <div class="tab-pane active user-content" id="home" role="tabpanel">
                   <div class="edit d-flex justify-content-between align-item-center">
                       <span>HI</span>
                       <div>
                           <button type="button" class="btn">Edit</button>
                       </div>
                   </div>
-                  <div>
-                      
+                  <div class="col-12 col-md-12 col-sm-12">
+                    <div class="row my-3">
+                      <div class="col-6 col-md-6 col-sm-12">
+                        <label for="name" d-block>First Name</label>
+                        <input type="text" id="name" formControlName="text" class="user-text">
+                      </div>
+                      <div class="col-6 col-md-6 col-sm-12">
+                        <label for="phone" d-block>Phone Number</label>
+                        <input type="number" id="phone" formControlName="number" class="user-text">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-12 col-sm-12">
+                    <div class="row my-3">
+                      <div class="col-6 col-md-6 col-sm-12">
+                        <label for="gender" d-block>Gender</label>
+                        <input type="text" id="gender" formControlName="gender" class="user-text">
+                      </div>
+                      <div class="col-6 col-md-6 col-sm-12">
+                        <label for="mail" d-block>Email</label>
+                        <input type="email" id="mail" formControlName="mail" class="user-text">
+                      </div>
+                    </div>
                   </div>
               </div>
               <div class="tab-pane" id="profile" role="tabpanel">
-                <p> I will be the leader of a company that ends up being worth billions of dollars, because I got the answers. I understand culture. I am the nucleus. I think that’s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at. I think that’s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at. </p>
+                  <div class="col-12 col-md-12 col-sm-12">
+                    <div class="row">
+                      <div class="col-6 col-md-6 col-sm-12">
+                         <h3 class="text-start">Orders</h3>
+                      </div>
+                      <div class="col-6 col-md-6 col-sm-12">
+                        <div class="box">
+                          <select class="opt">
+                            <option>Last 1 month</option>
+                            <option>Last 2 month</option>
+                            <option>Last 3 month</option>
+                            <option>Last 4 month</option>
+                            <option>Last 5 month</option>
+                          </select>
+                        </div>
+                     </div>
+                    </div>
+                    <div class="order-content user-content">
+                      <div class="row">
+                        <div class="col-8 col-md-8 col-sm-12 col-lg-8">
+                          <div class="d-flex align-item-center price">
+                            <img src="../../../assets/plumbing.jpg" alt="plumbing">
+                            <p class="ps-3">Order No:HKD-24783(No. of item 1) <span class="d-block text-start">&#8377;1,123</span></p>
+                          </div>
+                        </div>
+                        <div class="col-4 col-md-4 col-sm-12 col-lg-4 text-end">
+                          <span class="tc-g">Delivered</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
               </div>
               <div class="tab-pane" id="messages" role="tabpanel">
                 <p>I think that’s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at. So when you get something that has the name Kanye West on it, it’s supposed to be pushing the furthest possibilities. I will be the leader of a company that ends up being worth billions of dollars, because I got the answers. I understand culture. I am the nucleus.</p>
