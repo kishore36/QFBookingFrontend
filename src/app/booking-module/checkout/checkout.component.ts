@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { OrderService } from 'src/app/services/order-services.service';
+import { subServices } from 'src/app/services/sub-services.service';
+import { AuthService } from '../../services/auth.service';
+import { OrderService } from '../../services/order-services.service';
 
 @Component({
   selector: 'app-checkout',
@@ -11,19 +13,29 @@ import { OrderService } from 'src/app/services/order-services.service';
 export class CheckoutComponent implements OnInit {
   grandTotal: any = 0;
   cartItems: any = 0;
-  orderDetails:any;
-  orderForm:FormGroup;
+  orderDetails: any;
+  userDetailsForm: FormGroup;
   cartDetails: any;
+  userDetails: any;
+  subServiceIdList: any = [];
+  userId = '6280e8388510fa077c2d1622';
 
-  constructor(private router: Router,public order:OrderService) {
-    this.orderForm=new FormGroup({
-      _id:new FormControl(null),
-      name:new FormControl(''),
-      address:new FormControl(''),
-      // pincode:new FormControl(''),
-      phone:new FormControl(''),
-      email:new FormControl('')
-  });
+  constructor(
+    private router: Router,
+    public orderService: OrderService,
+    public userService: AuthService,
+    public subService: subServices
+  ) {
+    this.userDetailsForm = new FormGroup({
+      name: new FormControl('', [Validators.required]),
+      email: new FormControl('', [Validators.required, Validators.email]),
+      location: new FormGroup({
+        city: new FormControl('', Validators.required),
+        pincode: new FormControl('', Validators.required),
+        state: new FormControl('', Validators.required),
+        address: new FormControl('', Validators.required),
+      }),
+    });
   }
 
   ngOnInit(): void {
@@ -32,42 +44,42 @@ export class CheckoutComponent implements OnInit {
   }
   getCartDetails() {
     this.cartDetails = JSON.parse(localStorage.getItem('myCart') || '{}');
-    console.log(this.cartDetails)
+    this.cartDetails.forEach((subservice: any) => {
+      this.subServiceIdList.push(subservice._id);
+    });
   }
+
   getGrandTotal() {
     if (localStorage.getItem('gTotal')) {
       this.grandTotal = parseInt(localStorage.getItem('gTotal') || '{}');
     }
-  };
+  }
 
-  placeOrder() {
-    let orderObj = {
-      
+  submitOrder() {
+    if (this.userDetailsForm.valid) {
+      this.userService
+        .updateUserDetails(this.userDetailsForm.value, this.userId)
+        .subscribe(
+          async (resData: any) => {
+            this.userDetails = await resData;
+            let orderObj = {
+              subService: this.subServiceIdList,
+              user: resData.data.user._id,
+              confirmationCode: 'QF-004',
+            };
+            this.orderService.insertOrderData(orderObj).subscribe((res) => {
+              this.orderDetails = res;
+              console.log(this.orderDetails);
+            });
+          },
+          (err) => {
+            console.log(err);
+          }
+        );
+      this.userDetailsForm.reset();
+      localStorage.removeItem('myCart');
+      localStorage.removeItem('gTotal');
+      this.subService.cartSubject.next(this.cartDetails.length);
     }
-    localStorage.removeItem('myCart');
-    localStorage.removeItem('gTotal');
-    // this.router.navigate(['/booking/services']);
-  };
-isResetValue(){
-    this.orderForm.setValue({
-      id:'null',
-      fullName:'',
-      streetAddress:'',
-      pincode:'',
-      EmailAddress:''
-    })
-  };
-  submitOrder(){
-    console.log(this.orderForm.value)
-    // if(this.orderForm.valid){
-    //   this.order.insertOrderData(this.orderForm.value).subscribe(res=>{
-    //     console.log(res)
-    //     localStorage.setItem('orderData',JSON.stringify(res))
-    //   },err=>{
-    //     console.log('Error while receiving from respone:'+err)
-    //   })
-    //   this.orderForm.reset();
-    //   this.isResetValue();
-    // }
   }
 }

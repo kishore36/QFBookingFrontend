@@ -10,7 +10,7 @@ export class CartComponent implements OnInit {
   cartDetails: any[] = [];
   grandTotal = 0;
 
-  constructor(public subService:subServices) {}
+  constructor(public subService: subServices) {}
 
   ngOnInit(): void {
     this.getCartDetails();
@@ -64,12 +64,11 @@ export class CartComponent implements OnInit {
     if (localStorage.getItem('myCart')) {
       this.cartDetails = JSON.parse(localStorage.getItem('myCart') || '{}');
       for (let i = 0; i < this.cartDetails.length; i++) {
-        console.log(this.cartDetails[i]._id,sId);
         if (this.cartDetails[i]._id === sId) {
-          this.cartDetails.splice(i, 1);  
+          this.cartDetails.splice(i, 1);
           localStorage.setItem('myCart', JSON.stringify(this.cartDetails));
           this.getGrandTotal();
-          this.subService.cartSubject.next(this.cartDetails.length)
+          this.subService.cartSubject.next(this.cartDetails.length);
         }
       }
     }
