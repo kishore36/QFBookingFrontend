@@ -44,13 +44,11 @@
   }
   label, table{
     display: block;
-    margin: 15px;
+    margin: 17px 15px;
   }
   label>span{
     float: left;
     width: 25%;
-    margin-top: 12px;
-    padding-right: 10px;
   }
   input[type="text"], input[type="tel"], input[type="email"], select
   {

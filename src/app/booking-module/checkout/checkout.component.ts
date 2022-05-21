@@ -13,6 +13,7 @@ export class CheckoutComponent implements OnInit {
   cartItems: any = 0;
   orderDetails:any;
   orderForm:FormGroup;
+  cartDetails: any;
 
   constructor(private router: Router,public order:OrderService) {
     this.orderForm=new FormGroup({
@@ -27,8 +28,12 @@ export class CheckoutComponent implements OnInit {
 
   ngOnInit(): void {
     this.getGrandTotal();
+    this.getCartDetails();
   }
-
+  getCartDetails() {
+    this.cartDetails = JSON.parse(localStorage.getItem('myCart') || '{}');
+    console.log(this.cartDetails)
+  }
   getGrandTotal() {
     if (localStorage.getItem('gTotal')) {
       this.grandTotal = parseInt(localStorage.getItem('gTotal') || '{}');
@@ -36,6 +41,9 @@ export class CheckoutComponent implements OnInit {
   };
 
   placeOrder() {
+    let orderObj = {
+      
+    }
     localStorage.removeItem('myCart');
     localStorage.removeItem('gTotal');
     // this.router.navigate(['/booking/services']);

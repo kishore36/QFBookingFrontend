@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { subServices } from 'src/app/services/sub-services.service';
 
 @Component({
   selector: 'app-cart',
@@ -9,7 +10,7 @@ export class CartComponent implements OnInit {
   cartDetails: any[] = [];
   grandTotal = 0;
 
-  constructor() {}
+  constructor(public subService:subServices) {}
 
   ngOnInit(): void {
     this.getCartDetails();
@@ -63,10 +64,12 @@ export class CartComponent implements OnInit {
     if (localStorage.getItem('myCart')) {
       this.cartDetails = JSON.parse(localStorage.getItem('myCart') || '{}');
       for (let i = 0; i < this.cartDetails.length; i++) {
-        if (parseInt(this.cartDetails[i]._id) === parseInt(sId)) {
-          this.cartDetails.splice(i, 1);
+        console.log(this.cartDetails[i]._id,sId);
+        if (this.cartDetails[i]._id === sId) {
+          this.cartDetails.splice(i, 1);  
           localStorage.setItem('myCart', JSON.stringify(this.cartDetails));
           this.getGrandTotal();
+          this.subService.cartSubject.next(this.cartDetails.length)
         }
       }
     }
