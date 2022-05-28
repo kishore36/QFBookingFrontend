@@ -55,12 +55,23 @@
             <a routerLink="/booking/service-list">{{ service.name }}</a>
           </h3>
           <h4>Price: {{ service.rate * service.unit }} Rs</h4>
-          <p class="unit">
+          <!-- <p class="unit">
             Quantity: <input name="" value="{{ service.unit }}" />
-          </p>
-          <p class="btn-area bg-c" (click)="singleDelete(service._id)">
-            <i aria-hidden="true" class="fa fa-trash"></i>
-          </p>
+          </p> -->
+          
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="qty-input">
+              <button class="qty-count qty-count--minus" data-action="minus" type="button">-</button>
+              <span class="product-qty">1</span>
+              <button class="qty-count qty-count--add" data-action="add" type="button">+</button>
+            </div>
+            <!-- <p class="btn-area bg-c" (click)="singleDelete(service._id)">
+              <i aria-hidden="true" class="fa fa-trash"></i>
+            </p> -->
+            <div (click)="singleDelete(service._id)" class="bg-c trash">
+              <i aria-hidden="true" class="fa fa-trash"></i>
+            </div>
+          </div>
         </div>
       </div>
     </div>
