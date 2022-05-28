@@ -5,6 +5,7 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, ROUTES, Routes } from '@angular/router';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { OtpComponent } from './otp/otp.component';
 
 const appRoutes:Routes=[
   { path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -17,7 +18,8 @@ const appRoutes:Routes=[
   declarations: [
     LoginComponent,
     SignUpComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    OtpComponent
   ],
   imports: [
     CommonModule,

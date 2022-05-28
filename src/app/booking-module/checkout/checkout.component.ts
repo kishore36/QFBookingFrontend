@@ -18,7 +18,7 @@ export class CheckoutComponent implements OnInit {
   cartDetails: any;
   userDetails: any;
   subServiceIdList: any = [];
-  userId = '6280e8388510fa077c2d1622';
+  userId = '628903ba2d62f5ac1ba68c38';
 
   constructor(
     private router: Router,
@@ -65,7 +65,7 @@ export class CheckoutComponent implements OnInit {
             let orderObj = {
               subService: this.subServiceIdList,
               user: resData.data.user._id,
-              confirmationCode: 'QF-004',
+              confirmationCode: 'QF-002',
             };
             this.orderService.insertOrderData(orderObj).subscribe((res) => {
               this.orderDetails = res;
