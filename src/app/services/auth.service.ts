@@ -13,10 +13,30 @@ export class AuthService {
     return this._http.post(`${this.mainUrl}auth/register`, registerValue);
   }
 
+  verifyUser(otpDetails: any) {
+    return this._http.post(`${this.mainUrl}auth/verify`, otpDetails);
+  }
+
   updateUserDetails(userDetails: any, userId: any) {
     return this._http.patch(
       `${this.mainUrl}auth/updateUser/${userId}`,
       userDetails
     );
+  }
+
+  loginData(loginDetails: any) {
+    return this._http.post(
+      `${this.mainUrl}auth/login_with_phone`,
+      loginDetails
+    );
+  }
+
+  isLoggedIn() {
+    return !!localStorage.getItem('token');
+  }
+
+  public get userValue() {
+    const token = localStorage.getItem('token');
+    return token;
   }
 }

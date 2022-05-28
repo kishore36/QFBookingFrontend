@@ -1,1 +1,87 @@
-<p>login works!</p>
+<div class="col-md-12 col-12 col-sm-12 p-0">
+  <div class="col-md-12 p-0">
+    <div class="row m-0 sign-up">
+      <div class="col-5 col-md-5 col-sm-5 p-0">
+        <div class="banner tc2 d-flex">
+          <div class="quick">
+            <div class="logo">
+              <h2>QuickFix</h2>
+            </div>
+            <div class="text">
+              <p class="tc-w">
+                Welcome to QuickFix! Please keep your Aadhaar number, PAN number
+                and bank account number handy
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-7 col-md-7 col-sm-7 p-0">
+        <div class="register">
+          <div class="verify">
+            <div class="title">
+              <h3>Login</h3>
+              <p>Create your account with QuickFix in just a few easy steps</p>
+            </div>
+            <div class="mobile py-3" *ngIf="!isRegistered">
+              <h3>Mobile Number</h3>
+              <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text p-3"
+                      ><i class="fa fa-phone" aria-hidden="true"></i
+                    ></span>
+                  </div>
+                  <input
+                    type="tel"
+                    class="form-control"
+                    id="exampleFormControlInput1"
+                    formControlName="phone"
+                  />
+                </div>
+                <!-- <small
+                  >An OTP will be sent to this number for verification</small
+                > -->
+                <div class="referal p-3">
+                  <div class="code text-center">
+                    <button
+                      type="submit"
+                      class="btn btn-secondary btn-lg btn-block my-3"
+                    >
+                      Request OTP
+                    </button>
+                  </div>
+                  <div class="text-center p-3">
+                    Don't have an account?<a [routerLink]="'/sign-up'"
+                      >Sign Up</a
+                    >
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div
+              class="col-6 col-md-6 col-sm-8 mt-3 m-auto"
+              *ngIf="isRegistered"
+            >
+              <div class="verify">
+                <h3>ENTER OTP</h3>
+                <P
+                  >we have sent you access code via sms for mobile number
+                  verification</P
+                >
+                <div class="otp-num py-3">
+                  <input type="text" [(ngModel)]="otpValue" />
+                </div>
+                <div class="py-3">
+                  <button type="button" class="btn bg-c" (click)="onSignup()">
+                    Sign Up
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

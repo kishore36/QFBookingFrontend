@@ -1,100 +1,87 @@
-
 <div class="col-md-12 col-12 col-sm-12 p-0">
-    <!-- <div class="col-md-12 p-0">
-        <div class="fix">
-            <h1>QuickFix</h1>
-        </div>
-    </div> -->
-    <div class="col-md-12 p-0">
-        <div class="row m-0 sign-up">
-            <div class="col-5 col-md-5 col-sm-5 p-0">
-                <div class="banner tc2 d-flex">
-                    <div class="quick">
-                        <div class="logo">
-                            <h2>QuickFix</h2>
-                        </div>
-                        <div class="text">
-                            <p class="tc-w">Welcome to QuickFix! Please keep your Aadhaar number, PAN number and bank account number handy</p>
-                        </div>
-                    </div>
-                </div>
+  <div class="col-md-12 p-0">
+    <div class="row m-0 sign-up">
+      <div class="col-5 col-md-5 col-sm-5 p-0">
+        <div class="banner tc2 d-flex">
+          <div class="quick">
+            <div class="logo">
+              <h2>QuickFix</h2>
             </div>
-            <div class="col-7 col-md-7 col-sm-7 p-0">
-                <div class="register">
-                        <div class="verify">
-                            <div class="title">
-                                <h3>Register</h3>
-                                <p>Create your investment account with QuickFix in just a few easy steps</p>
-                            </div>
-                            <div class="mobile py-3">
-                                <h3>Mobile Number</h3>
-                                <!-- <div class="tel-com">
-                                    <span><i class="fa fa-phone" aria-hidden="true"></i></span>
-                                    <input type="tel"  name="phone">
-                                </div> -->
-                                <!-- <form #contactForm="ngForm">
-                                    <div class="input-group mb-3">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text p-3" ><i class="fa fa-phone" aria-hidden="true"></i></span>
-                                        </div>
-                                        <input type="tel" class="form-control" id="exampleFormControlInput1" name="mobileNumber" [(ngModel)]="contact.mobileNumber">
-                                    </div>
-                                    <small>An OTP will be sent to this number for verification</small>
-                                    <div class="form-check py-3">
-                                        <input class="form-check-input" type="checkbox" value="" name="isChecked"  id="flexCheckDefault" [(ngModel)]="contact.isChecked">
-                                        <label class="form-check-label" for="flexCheckDefault">
-                                            I confirm that I have read, understood and agreed to QuickFix
-                                        </label>
-                                        <i class="d-block check">(Please click the checkbox to continue with sign up)</i>
-                                    </div>
-                                    <div class="referal p-3">
-                                        <div class="code text-center">
-                                            <h3><a href="#">Have a referral code?</a></h3>
-                                            <button type="button" class="btn btn-secondary btn-lg btn-block my-3" [disabled]="isDisabled">Submit</button>
-                                        </div>
-                                        <div class="text-center p-3">
-                                            <a href="#">Already have an account? Sign In</a>
-                                        </div>
-                                    </div>
-                                </form> -->
-                                <!-- <div class="input-group mb-2"> -->
-                                    <!-- <div class="input-group-prepend">
-                                        <div class="input-group-text"><i class="fa fa-phone" aria-hidden="true"></i></div>
-                                    </div> -->
-                                    <!-- <span><i class="fa fa-phone" aria-hidden="true"></i></span>
-                                    <input type="text" class="form-control" placeholder="Username">
-                                    </div> -->
-                                    <form [formGroup] ="contactForm" (ngSubmit)="onSubmit()"> 
-                                        <div class="input-group mb-3">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text p-3" ><i class="fa fa-phone" aria-hidden="true"></i></span>
-                                            </div>
-                                            <input type="tel" class="form-control" id="exampleFormControlInput1" formControlName="phone">
-                                        </div>
-                                        <small>An OTP will be sent to this number for verification</small>
-                                        <!-- <div class="form-check py-3">
-                                            <input class="form-check-input" type="checkbox" value=""  formControlName="isChecked"  id="flexCheckDefault">
-                                            <label class="form-check-label" for="flexCheckDefault">
-                                                I confirm that I have read, understood and agreed to QuickFix
-                                            </label>
-                                            <i class="d-block check">(Please click the checkbox to continue with sign up)</i>
-                                        </div> -->
-                                        <div class="referal p-3">
-                                            <div class="code text-center">
-                                                <!-- <h3><a>Have a referral code?</a></h3> -->
-                                                <button type="submit" class="btn btn-secondary btn-lg btn-block my-3">Submit</button>
-                                            </div>
-                                            <div class="text-center p-3">
-                                                <a>Already have an account? Sign In</a>
-                                            </div>
-                                        </div>
-                                    </form>
-                            </div>
-                            
-                        </div>
-                </div>
+            <div class="text">
+              <p class="tc-w">
+                Welcome to QuickFix! Please keep your Aadhaar number, PAN number
+                and bank account number handy
+              </p>
             </div>
+          </div>
         </div>
+      </div>
+      <div class="col-7 col-md-7 col-sm-7 p-0">
+        <div class="register">
+          <div class="verify">
+            <div class="title">
+              <h3>Register</h3>
+              <p>Create your account with QuickFix in just a few easy steps</p>
+            </div>
+            <div class="mobile py-3" *ngIf="!isRegistered">
+              <h3>Mobile Number</h3>
+              <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text p-3"
+                      ><i class="fa fa-phone" aria-hidden="true"></i
+                    ></span>
+                  </div>
+                  <input
+                    type="tel"
+                    class="form-control"
+                    id="exampleFormControlInput1"
+                    formControlName="phone"
+                  />
+                </div>
+                <!-- <small
+                  >An OTP will be sent to this number for verification</small
+                > -->
+                <div class="referal p-3">
+                  <div class="code text-center">
+                    <button
+                      type="submit"
+                      class="btn btn-secondary btn-lg btn-block my-3"
+                    >
+                      Request OTP
+                    </button>
+                  </div>
+                  <div class="text-center p-3">
+                    Already have an account?<a [routerLink]="'/login'"
+                      >Sign In</a
+                    >
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div
+              class="col-6 col-md-6 col-sm-8 mt-3 m-auto"
+              *ngIf="isRegistered"
+            >
+              <div class="verify">
+                <h3>ENTER OTP</h3>
+                <P
+                  >we have sent you access code via sms for mobile number
+                  verification</P
+                >
+                <div class="otp-num py-3">
+                  <input type="text" [(ngModel)]="otpValue" />
+                </div>
+                <div class="py-3">
+                  <button type="button" class="btn bg-c" (click)="onSignup()">
+                    Sign Up
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </div>
-

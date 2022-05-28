@@ -59,23 +59,17 @@ export class CheckoutComponent implements OnInit {
     if (this.userDetailsForm.valid) {
       this.userService
         .updateUserDetails(this.userDetailsForm.value, this.userId)
-        .subscribe(
-          async (resData: any) => {
-            this.userDetails = await resData;
-            let orderObj = {
-              subService: this.subServiceIdList,
-              user: resData.data.user._id,
-              confirmationCode: 'QF-002',
-            };
-            this.orderService.insertOrderData(orderObj).subscribe((res) => {
-              this.orderDetails = res;
-              console.log(this.orderDetails);
-            });
-          },
-          (err) => {
-            console.log(err);
-          }
-        );
+        .subscribe(async (resData: any) => {
+          this.userDetails = await resData;
+          let orderObj = {
+            subService: this.subServiceIdList,
+            user: resData.data.user._id,
+            confirmationCode: new Date().valueOf(),
+          };
+          this.orderService.insertOrderData(orderObj).subscribe((res) => {
+            this.orderDetails = res;
+          });
+        });
       this.userDetailsForm.reset();
       localStorage.removeItem('myCart');
       localStorage.removeItem('gTotal');

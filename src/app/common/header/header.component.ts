@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 import { subServices } from 'src/app/services/sub-services.service';
 
 @Component({
@@ -7,19 +8,22 @@ import { subServices } from 'src/app/services/sub-services.service';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  public cartItems: any=0;
+  public cartItems: any = 0;
 
-  constructor(private subService: subServices) {
-    this.subService.cartSubject.subscribe(res => this.cartItems = res)
+  constructor(
+    private subService: subServices,
+    public authService: AuthService
+  ) {
+    this.subService.cartSubject.subscribe((res) => (this.cartItems = res));
   }
 
   ngOnInit() {
-    this.cartItemFunction()
+    this.cartItemFunction();
   }
-  cartItemFunction(){
-    if(localStorage.getItem('myCart') !== null){
-      let cartCount = JSON.parse(localStorage.getItem('myCart')|| '{}')
-      this.cartItems = cartCount.length
+  cartItemFunction() {
+    if (localStorage.getItem('myCart') !== null) {
+      let cartCount = JSON.parse(localStorage.getItem('myCart') || '{}');
+      this.cartItems = cartCount.length;
     }
   }
 }

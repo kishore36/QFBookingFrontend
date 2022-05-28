@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ServiceListComponent } from './service-list/service-list.component';
 import { ServiceDescriptionComponent } from './service-description/service-description.component';
 import { BooknowComponent } from './book-now/book-now.component';
@@ -14,20 +14,25 @@ import { ServiceSectionComponent } from './home/service-section/service-section.
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { AuthGuard } from '../common/auth.guard';
 
-const bookRoutes:Routes=[
-  {path:"home",component:ServiceDescriptionComponent},
-  {path:"book-now",component:BooknowComponent},
-  {path:"service-list",component:ServiceListComponent},
-  {path:"service-description",component:ServiceDescriptionComponent},
-  {path:"book-now",component:BooknowComponent},
-  {path:"sub-service/:id",component:SubServiceListComponent},
-  {path:"cart",component:CartComponent},
-  {path:"Home",component:HomeComponent},
-  {path:"about-us",component:AboutUsComponent},
-  {path:"contact-us",component:ContactUsComponent},
-  {path:"order",component:CheckoutComponent}
-]
+const bookRoutes: Routes = [
+  { path: 'home', component: ServiceDescriptionComponent },
+  { path: 'book-now', component: BooknowComponent },
+  { path: 'service-list', component: ServiceListComponent },
+  { path: 'service-description', component: ServiceDescriptionComponent },
+  { path: 'book-now', component: BooknowComponent },
+  { path: 'sub-service/:id', component: SubServiceListComponent },
+  { path: 'cart', component: CartComponent },
+  { path: 'Home', component: HomeComponent },
+  { path: 'about-us', component: AboutUsComponent },
+  { path: 'contact-us', component: ContactUsComponent },
+  {
+    path: 'order',
+    canActivate: [AuthGuard],
+    component: CheckoutComponent,
+  },
+];
 
 @NgModule({
   declarations: [
@@ -42,13 +47,13 @@ const bookRoutes:Routes=[
     ServiceSectionComponent,
     AboutUsComponent,
     ContactUsComponent,
-    CheckoutComponent
+    CheckoutComponent,
   ],
-  imports: [ 
+  imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule.forChild(bookRoutes)
-  ]
+    RouterModule.forChild(bookRoutes),
+  ],
 })
-export class BookingModule { }
+export class BookingModule {}
