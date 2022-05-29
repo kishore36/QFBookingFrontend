@@ -16,6 +16,15 @@
 .team{
    margin-bottom: 70px;
 }
+.team-img{
+  .carousel-item{
+    img{
+      width: auto;
+      height: 300px;
+      object-fit: cover;
+    }
+  }
+}
 .content-1{
    position: relative;
    display: inline;

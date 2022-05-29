@@ -18,12 +18,12 @@
       </div>
       <div class="col-7 col-md-7 col-sm-7 p-0">
         <div class="register">
-          <div class="verify">
+          <div class="verify" *ngIf="!isRegistered">
             <div class="title">
               <h3>Register</h3>
               <p>Create your account with QuickFix in just a few easy steps</p>
             </div>
-            <div class="mobile py-3" *ngIf="!isRegistered">
+            <div class="mobile py-3">
               <h3>Mobile Number</h3>
               <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
                 <div class="input-group mb-3">
@@ -59,16 +59,14 @@
                 </div>
               </form>
             </div>
-            <div
-              class="col-6 col-md-6 col-sm-8 mt-3 m-auto"
-              *ngIf="isRegistered"
-            >
-              <div class="verify">
+          </div>
+          <div class="col-12 col-md-12 col-sm-12" *ngIf="isRegistered">
+              <div class="verify-1">
                 <h3>ENTER OTP</h3>
                 <P
                   >we have sent you access code via sms for mobile number
-                  verification</P
-                >
+                  verification
+                  </P>
                 <div class="otp-num py-3">
                   <input type="text" [(ngModel)]="otpValue" />
                 </div>
@@ -79,7 +77,6 @@
                 </div>
               </div>
             </div>
-          </div>
         </div>
       </div>
     </div>
